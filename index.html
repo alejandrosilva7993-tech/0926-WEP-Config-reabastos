@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>WEP — Crear configuración de reabastos</title>
+  <link rel="icon" href="logo-wep-icon.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+  <link href="https://unpkg.com/primeicons@7.0.0/primeicons.css" rel="stylesheet" crossorigin="anonymous">
+  <link rel="stylesheet" href="wep-topbar.css">
+  <link rel="stylesheet" href="wep-sidebar.css">
+  <link rel="stylesheet" href="wep-asn-print.css">
+  <link rel="stylesheet" href="wep-config-reabastos.css">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    html, body {
+      min-height: 100vh;
+      font-family: Inter, system-ui, sans-serif;
+      font-size: 14px;
+      color: #00263a;
+      background: #fafafa;
+    }
+
+    .wep-shell { display: flex; flex-direction: column; min-height: 100vh; }
+    .wep-body { display: flex; flex: 1; min-height: 0; }
+  </style>
+</head>
+<body>
+
+  <div class="wep-shell">
+
+    <header class="wep-topbar">
+      <div class="wep-topbar__bar">
+        <button type="button" class="wep-topbar__menu" aria-label="Menú principal">
+          <img src="hamburger-color.svg" alt="" class="wep-topbar__menu-icon">
+        </button>
+
+        <span class="wep-topbar__wep-app" aria-hidden="true">
+          <img src="logo-wep-icon.svg" alt="" class="wep-topbar__wep-app-icon">
+        </span>
+
+        <div class="wep-topbar__brand">
+          <span class="wep-topbar__brand-title">Warehouse</span>
+          <span class="wep-topbar__brand-sub">Efficiency and productivity</span>
+        </div>
+
+        <div class="wep-topbar__spacer"></div>
+
+        <label class="wep-topbar__search">
+          <input type="search" placeholder="Búsqueda en WEP" aria-label="Búsqueda en WEP">
+          <img src="icon-search.svg" alt="" class="wep-topbar__search-icon">
+        </label>
+
+        <div class="wep-topbar__actions">
+          <button type="button" class="wep-topbar__action-btn wep-topbar__bell" aria-label="Notificaciones (1 sin leer)">
+            <img src="icon-bell-inner.svg" alt="" class="wep-topbar__bell-shape">
+            <span class="wep-topbar__badge" aria-hidden="true">
+              <img src="badge-outer.svg" alt="" class="wep-topbar__badge-outer">
+              <img src="badge-inner.svg" alt="" class="wep-topbar__badge-inner">
+            </span>
+          </button>
+          <button type="button" class="wep-topbar__action-btn wep-topbar__settings" aria-label="Configuración">
+            <img src="icon-settings-inner.svg" alt="" class="wep-topbar__settings-inner">
+          </button>
+          <img src="icon-user.svg" alt="" class="wep-topbar__avatar" aria-hidden="true">
+        </div>
+      </div>
+    </header>
+
+    <div class="wep-body">
+      <nav class="wep-sidebar" id="wep-sidebar" aria-label="Navegación principal">
+        <div class="wep-sidebar__nav">
+          <button type="button" class="wep-sidebar__item" aria-label="Inicio">
+            <img src="icon-01-home.svg" alt="" class="wep-sidebar__icon">
+            <span class="wep-sidebar__label">Inicio</span>
+          </button>
+          <button type="button" class="wep-sidebar__item wep-sidebar__item--active" aria-label="Configuración" aria-current="page">
+            <img src="icon-02-settings-active-bg.svg" alt="" class="wep-sidebar__active-bg">
+            <img src="icon-02-settings.svg" alt="" class="wep-sidebar__icon">
+            <span class="wep-sidebar__label">Configuración</span>
+          </button>
+          <button type="button" class="wep-sidebar__item" aria-label="Catálogos">
+            <img src="icon-03.svg" alt="" class="wep-sidebar__icon">
+            <span class="wep-sidebar__label">Catálogos</span>
+          </button>
+          <button type="button" class="wep-sidebar__item" aria-label="Recibo">
+            <img src="icon-11.svg" alt="" class="wep-sidebar__icon wep-sidebar__icon--compact">
+            <span class="wep-sidebar__label">Recibo</span>
+          </button>
+          <button type="button" class="wep-sidebar__item" aria-label="Surtido">
+            <img src="icon-04.svg" alt="" class="wep-sidebar__icon">
+            <span class="wep-sidebar__label">Surtido</span>
+          </button>
+          <button type="button" class="wep-sidebar__item" aria-label="Reubicar">
+            <img src="icon-05.svg" alt="" class="wep-sidebar__icon">
+            <span class="wep-sidebar__label">Reubicar</span>
+          </button>
+          <button type="button" class="wep-sidebar__item" aria-label="Reportes">
+            <img src="icon-06.svg" alt="" class="wep-sidebar__icon">
+            <span class="wep-sidebar__label">Reportes</span>
+          </button>
+          <button type="button" class="wep-sidebar__item" aria-label="Tareas">
+            <img src="icon-07.svg" alt="" class="wep-sidebar__icon">
+            <span class="wep-sidebar__label">Tareas</span>
+          </button>
+          <button type="button" class="wep-sidebar__item" aria-label="Inventario">
+            <img src="icon-08.svg" alt="" class="wep-sidebar__icon">
+            <span class="wep-sidebar__label">Inventario</span>
+          </button>
+          <button type="button" class="wep-sidebar__item" aria-label="Planeación">
+            <img src="icon-09.svg" alt="" class="wep-sidebar__icon">
+            <span class="wep-sidebar__label">Planeación</span>
+          </button>
+          <button type="button" class="wep-sidebar__item" aria-label="Embarque">
+            <img src="icon-10.svg" alt="" class="wep-sidebar__icon">
+            <span class="wep-sidebar__label">Embarque</span>
+          </button>
+        </div>
+      </nav>
+
+      <main class="main">
+        <div class="asn-page reabastos-page">
+
+          <header class="page-header">
+            <h1 class="page-header__title" id="pageTitle">Crear configuración de reabastos</h1>
+            <div class="page-header__divider"></div>
+          </header>
+
+          <form class="form-asn form-reabastos" id="reabastosForm" novalidate>
+
+            <div class="reabastos-grid">
+
+              <!-- Columna izquierda -->
+              <div class="reabastos-col">
+                <div class="field" id="field-cuenta">
+                  <label class="field__label" for="cuenta">Cuenta</label>
+                  <div class="field__control field__control--dropdown">
+                    <select id="cuenta" name="cuenta" required aria-required="true">
+                      <option value="acc1" selected>Acc 1</option>
+                      <option value="acc2">Acc 2</option>
+                      <option value="acc3">Acc 3</option>
+                    </select>
+                    <span class="field__addon" aria-hidden="true">
+                      <img src="icon-expand-more-white.svg" alt="">
+                    </span>
+                  </div>
+                  <p class="field__error" id="error-cuenta" hidden>Selecciona una cuenta.</p>
+                </div>
+
+                <div class="field" id="field-area">
+                  <label class="field__label" for="area">Área</label>
+                  <div class="field__control field__control--dropdown">
+                    <select id="area" name="area" required aria-required="true">
+                      <option value="almacenpz1" selected>AlmacenPZ1</option>
+                      <option value="almacenpz2">AlmacenPZ2</option>
+                      <option value="picking01">Picking01</option>
+                    </select>
+                    <span class="field__addon" aria-hidden="true">
+                      <img src="icon-expand-more-white.svg" alt="">
+                    </span>
+                  </div>
+                  <p class="field__error" id="error-area" hidden>Selecciona un área.</p>
+                </div>
+
+                <div class="field" id="field-localidad">
+                  <label class="field__label" for="localidad">Localidad</label>
+                  <div class="field__control">
+                    <input
+                      type="text"
+                      id="localidad"
+                      name="localidad"
+                      value="1Loc1"
+                      maxlength="40"
+                      required
+                      aria-required="true"
+                      autocomplete="off"
+                    >
+                  </div>
+                  <p class="field__error" id="error-localidad" hidden>La localidad es requerida.</p>
+                </div>
+              </div>
+
+              <!-- Columna derecha -->
+              <div class="reabastos-col">
+                <div class="field" id="field-sku">
+                  <label class="field__label" for="sku">SKU</label>
+                  <div class="field__control">
+                    <input
+                      type="text"
+                      id="sku"
+                      name="sku"
+                      value="11SKU1"
+                      maxlength="40"
+                      required
+                      aria-required="true"
+                      autocomplete="off"
+                    >
+                  </div>
+                  <p class="field__error" id="error-sku" hidden>El SKU es requerido.</p>
+                </div>
+
+                <div class="field field--bit" id="field-parcial">
+                  <span class="field__label" id="parcial-label">Reabasto parcial</span>
+                  <div class="bit-row">
+                    <div class="p-inputswitch p-component" id="parcialSwitch" data-p-checked="false">
+                      <input
+                        type="checkbox"
+                        id="parcial"
+                        name="parcial"
+                        class="p-inputswitch-input"
+                        role="switch"
+                        aria-checked="false"
+                        aria-labelledby="parcial-label"
+                      >
+                      <span class="p-inputswitch-slider" aria-hidden="true"></span>
+                    </div>
+                    <span class="info-tip">
+                      <svg
+                        class="info-icon"
+                        width="20"
+                        height="20"
+                        viewBox="0 0 24 24"
+                        xmlns="http://www.w3.org/2000/svg"
+                        tabindex="0"
+                        role="img"
+                        aria-label="Información sobre Reabasto parcial"
+                        aria-describedby="hint-parcial"
+                      >
+                        <path
+                          fill-rule="evenodd"
+                          clip-rule="evenodd"
+                          d="M12 2C6.48 2 2 6.48 2 12C2 17.52 6.48 22 12 22C17.52 22 22 17.52 22 12C22 6.48 17.52 2 12 2ZM13 17H11V11H13V17ZM13 9H11V7H13V9Z"
+                          fill="currentColor"
+                        />
+                      </svg>
+                      <span class="info-tip-text" id="hint-parcial" role="tooltip">
+                        Permite reabasto parcial de mercancía.
+                      </span>
+                    </span>
+                  </div>
+                </div>
+
+                <!-- Nuevo campo HU: SubLPN parcial — posterior a Reabasto parcial -->
+                <div class="field field--bit" id="field-sublpn-parcial">
+                  <span class="field__label" id="sublpn-label">SubLPN parcial</span>
+                  <div class="bit-row">
+                    <div class="p-inputswitch p-component" id="sublpnSwitch" data-p-checked="false">
+                      <input
+                        type="checkbox"
+                        id="sublpnParcial"
+                        name="sublpnParcial"
+                        class="p-inputswitch-input"
+                        role="switch"
+                        aria-checked="false"
+                        aria-labelledby="sublpn-label"
+                      >
+                      <span class="p-inputswitch-slider" aria-hidden="true"></span>
+                    </div>
+                    <span class="info-tip">
+                      <svg
+                        class="info-icon"
+                        width="20"
+                        height="20"
+                        viewBox="0 0 24 24"
+                        xmlns="http://www.w3.org/2000/svg"
+                        tabindex="0"
+                        role="img"
+                        aria-label="Información sobre SubLPN parcial"
+                        aria-describedby="hint-sublpn-parcial"
+                      >
+                        <path
+                          fill-rule="evenodd"
+                          clip-rule="evenodd"
+                          d="M12 2C6.48 2 2 6.48 2 12C2 17.52 6.48 22 12 22C17.52 22 22 17.52 22 12C22 6.48 17.52 2 12 2ZM13 17H11V11H13V17ZM13 9H11V7H13V9Z"
+                          fill="currentColor"
+                        />
+                      </svg>
+                      <span class="info-tip-text" id="hint-sublpn-parcial" role="tooltip">
+                        Permite especificar si se prioriza un reabasto de SubLPN parcial.
+                      </span>
+                    </span>
+                  </div>
+                </div>
+              </div>
+
+            </div>
+
+            <div class="form-actions form-actions--start">
+              <button type="button" class="btn-action btn-action--cancel" id="btnCancel">
+                <i class="pi pi-ban" aria-hidden="true"></i>
+                Cancelar
+              </button>
+              <button type="submit" class="btn-action btn-action--save" id="btnSave">
+                <i class="pi pi-save" aria-hidden="true"></i>
+                Guardar
+              </button>
+            </div>
+          </form>
+
+        </div>
+      </main>
+    </div>
+  </div>
+
+  <script src="wep-config-reabastos.js" defer></script>
+</body>
+</html>
